@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>معلم دهانات الطائف | دهانات وديكورات احترافية</title>
+  <meta name="description" content="موقع معلم دهانات وديكورات الطائف - دهانات داخلية وخارجية وديكورات وتشطيبات باحترافية عالية." />
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #e8c84a;
+      --gold-soft: rgba(212, 175, 55, 0.16);
+      --black: #0b0b0b;
+      --black-soft: #141414;
+      --text: #f4f4f4;
+      --muted: #c8c8c8;
+      --border: rgba(212, 175, 55, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Tahoma", "Arial", sans-serif;
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(11,11,11,0.88);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .menu a,
+    .btn {
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      transition: 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .menu a:hover,
+    .btn:hover {
+      background: var(--gold);
+      color: #111;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 88vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0.8)),
+        linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.05)),
+        url('https://flowbit-848effb22be6.herokuapp.com/dl/55261/photo-2026-05-04_20-29-38.jpg?code=fed5cbdf94e1ab0fc6c43eac-5905562720') center/cover no-repeat;
+      transform: scale(1.03);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.03); }
+      to { transform: scale(1.08); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(760px, 100%);
+      padding: 80px 0;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(0,0,0,0.35);
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 16px;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      color: var(--gold);
+      text-shadow: 0 8px 28px rgba(0,0,0,0.35);
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .lead {
+      color: #f8f1d5;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin-bottom: 28px;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.8s both;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Sections */
+    section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 780px;
+      margin: 0 auto 36px;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: -46px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-card,
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover,
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(212, 175, 55, 0.15);
+    }
+
+    .stat-number {
+      display: block;
+      color: var(--gold);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    /* Features */
+    .features,
+    .image-grid,
+    .video-grid,
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .features {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card h3 {
+      color: var(--gold);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* Image Grid */
+    .image-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .image-grid img,
+    .process-image {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #111;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+    }
+
+    /* Video Grid */
+    .video-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .video-card {
+      overflow: hidden;
+      padding: 0;
+      border-radius: 22px;
+    }
+
+    .video-card video {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+
+    /* Two Column */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    /* Map */
+    .map-wrap iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: #111;
+    }
+
+    /* Contact */
+    .contact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      align-items: stretch;
+    }
+
+    .contact-link {
+      color: var(--gold);
+      font-weight: 700;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .testimonial-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-text {
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 14px;
+      line-height: 1.9;
+    }
+
+    .testimonial-author {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* Floating Call Button */
+    .floating-call {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .floating-call:hover {
+      transform: scale(1.1);
+      background: #128C7E;
+      color: #fff;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 6px 36px rgba(37, 211, 102, 0.7); }
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(20,20,20,0.9);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      text-decoration: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      background: var(--gold);
+      color: #111;
+    }
+
+    /* Why Choose Us */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .why-icon {
+      font-size: 2.5rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .why-card h3 {
+      font-size: 1.1rem;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 26px 0 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .footer-links a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: opacity 0.3s;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .two-col { grid-template-columns: 1fr; }
+      .hero { min-height: 78vh; }
+      .video-card video { min-height: 320px; }
+      .floating-call { width: 52px; height: 52px; font-size: 1.3rem; bottom: 20px; left: 20px; }
+      .back-to-top { bottom: 20px; right: 20px; width: 42px; height: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">معلم دهانات الطائف</a>
+      <nav class="menu">
+        <a href="#home">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#gallery">الصور</a>
+        <a href="#videos">الفيديوهات</a>
+        <a href="#testimonials">آراء العملاء</a>
+        <a href="#contact">التواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">دهانات وديكورات وتشطيبات في الطائف</span>
+        <h1>إتقان وفخامة في كل لمسة</h1>
+        <p class="lead">تنفيذ أعمال الدهانات والديكورات بأسلوب احترافي يُبرز جمال المساحات الداخلية والخارجية ويمنح المكان هوية أنيقة وعصرية.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/966554374134" target="_blank">💬 تواصل معنا واتساب</a>
+          <a class="btn btn-secondary" href="#gallery">🖼️ مشاهدة الأعمال</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="container">
+    <div class="stats">
+      <div class="stat-card animate-on-scroll">
+        <span class="stat-number" data-target="15">0</span>
+        سنة خبرة في المجال
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <span class="stat-number" data-target="500">0</span>
+        مشروع مُنجز بنجاح
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <span class="stat-number">24/7</span>
+        جاهزية للتواصل والاستشارة
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <span class="stat-number">⭐</span>
+        جودة عالية وضمان
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">خدماتنا المتميزة</h2>
+      <p class="section-subtitle animate-on-scroll">نقدم مجموعة شاملة من خدمات الدهانات والديكورات بأعلى معايير الجودة والاحترافية.</p>
+      <div class="features">
+        <div class="card animate-on-scroll">
+          <span class="card-icon">🎨</span>
+          <h3>دهانات داخلية</h3>
+          <p>تشطيبات راقية ولمسات لونية متناسقة للمجالس والصالات والغرف والممرات بأفضل أنواع الدهانات.</p>
+        </div>
+        <div class="card animate-on-scroll">
+          <span class="card-icon">🏠</span>
+          <h3>دهانات خارجية</h3>
+          <p>حلول مناسبة للواجهات بمظهر أنيق ومقاومة عالية للعوامل الجوية والحرارة.</p>
+        </div>
+        <div class="card animate-on-scroll">
+          <span class="card-icon">✨</span>
+          <h3>ديكورات وتشطيبات</h3>
+          <p>تنسيق بصري احترافي يرفع قيمة المكان ويمنحه طابعًا عصريًا وفخمًا يليق بذوقك.</p>
+        </div>
+        <div class="card animate-on-scroll">
+          <span class="card-icon">🖌️</span>
+          <h3>ورق جدران</h3>
+          <p>تركيب ورق جدران بتصاميم عصرية وكلاسيكية تناسب جميع الأذواق والمساحات.</p>
+        </div>
+        <div class="card animate-on-scroll">
+          <span class="card-icon">💎</span>
+          <h3>دهانات فاخرة</h3>
+          <p>دهانات ماركات عالمية بلمسات إبداعية تشمل الرخامي والمخملي والمعدني.</p>
+        </div>
+        <div class="card animate-on-scroll">
+          <span class="card-icon">🔧</span>
+          <h3>ترميم وصيانة</h3>
+          <p>إصلاح التشققات ومعالجة الجدران وإعادة الدهان بأعلى جودة وأسرع وقت.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why-us">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">لماذا تختارنا؟</h2>
+      <p class="section-subtitle animate-on-scroll">نتميز بالاحترافية والالتزام بالمواعيد وجودة التنفيذ التي تتحدث عن نفسها.</p>
+      <div class="why-grid">
+        <div class="card why-card animate-on-scroll">
+          <span class="why-icon">⏰</span>
+          <h3>التزام بالمواعيد</h3>
+          <p>نحترم وقتك ونلتزم بتسليم العمل في الموعد المحدد.</p>
+        </div>
+        <div class="card why-card animate-on-scroll">
+          <span class="why-icon">💰</span>
+          <h3>أسعار منافسة</h3>
+          <p>أسعار عادلة تناسب جميع الميزانيات مع الحفاظ على الجودة.</p>
+        </div>
+        <div class="card why-card animate-on-scroll">
+          <span class="why-icon">🏆</span>
+          <h3>خبرة طويلة</h3>
+          <p>سنوات من الخبرة في تنفيذ مشاريع متنوعة بالطائف.</p>
+        </div>
+        <div class="card why-card animate-on-scroll">
+          <span class="why-icon">✅</span>
+          <h3>ضمان الجودة</h3>
+          <p>نضمن لك جودة العمل ونقدم خدمة ما بعد التنفيذ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">معرض أعمالنا</h2>
+      <p class="section-subtitle animate-on-scroll">نماذج من أعمالنا المنفذة بعناية واحترافية في مدينة الطائف.</p>
+      <div class="image-grid">
+        <img loading="lazy" class="animate-on-scroll" src="https://flowbit-848effb22be6.herokuapp.com/dl/55261/photo-2026-05-04_20-29-38.jpg?code=fed5cbdf94e1ab0fc6c43eac-5905562720" alt="أعمال دهانات داخلية احترافية" />
+        <img loading="lazy" class="animate-on-scroll" src="https://flowbit-848effb22be6.herokuapp.com/dl/55262/photo-2026-05-04_20-30-42.jpg?code=65ed7b98710a414d171c7dd3-5905562720" alt="تشطيبات وديكورات عصرية" />
+        <img loading="lazy" class="animate-on-scroll" src="https://flowbit-848effb22be6.herokuapp.com/dl/55263/photo-2026-05-04_20-31-09.jpg?code=42f0494c890039a67d7b701d-5905562720" alt="دهانات خارجية للواجهات" onerror="this.onerror=null;this.src='https://flowbit-848effb22be6.herokuapp.com/dl/55261/photo-2026-05-04_20-29-38.jpg?code=fed5cbdf94e1ab0fc6c43eac-5905562720';" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section>
+    <div class="container two-col">
+      <div class="animate-on-scroll">
+        <h2 class="section-title" style="text-align:right; margin-bottom:10px;">آلية العمل</h2>
+        <p class="section-subtitle" style="text-align:right; margin:0 0 18px;">من المعاينة إلى التسليم النهائي، نتبع خطوات واضحة لضمان رضاك التام.</p>
+        <div class="card" style="margin-bottom:14px;">
+          <h3>١. المعاينة والاستشارة</h3>
+          <p>زيارة الموقع وتقييم المساحة واقتراح الألوان والتصاميم المناسبة.</p>
+        </div>
+        <div class="card" style="margin-bottom:14px;">
+          <h3>٢. عرض السعر</h3>
+          <p>تقديم عرض سعر شامل وواضح بدون تكاليف مخفية.</p>
+        </div>
+        <div class="card">
+          <h3>٣. التنفيذ والتسليم</h3>
+          <p>تنفيذ العمل بأعلى جودة وتسليمه في الموعد المتفق عليه.</p>
+        </div>
+      </div>
+      <div class="animate-on-scroll">
+        <img class="process-image" src="https://flowbit-848effb22be6.herokuapp.com/dl/55262/photo-2026-05-04_20-30-42.jpg?code=65ed7b98710a414d171c7dd3-5905562720" alt="خطوات العمل الاحترافية" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos Section -->
+  <section id="videos">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">فيديوهات من أعمالنا</h2>
+      <p class="section-subtitle animate-on-scroll">شاهد مقاطع فيديو حية من مشاريعنا المنفذة لتتعرف على مستوى الجودة والإتقان.</p>
+      <div class="video-grid">
+        <div class="card video-card animate-on-scroll"><video autoplay muted loop playsinline controls preload="metadata"><source src="https://flowbit-848effb22be6.herokuapp.com/dl/53885/video-2026-05-03_01-48-23.mp4?code=8b8c2bb689fbe05055ab5997-5905562720" type="video/mp4"></video></div>
+        <div class="card video-card animate-on-scroll"><video autoplay muted loop playsinline controls preload="metadata"><source src="https://flowbit-848effb22be6.herokuapp.com/dl/53886/video-2026-05-03_01-50-52.mp4?code=2b697201b26972c625c0fddd-5905562720" type="video/mp4"></video></div>
+        <div class="card video-card animate-on-scroll"><video autoplay muted loop playsinline controls preload="metadata"><source src="https://flowbit-848effb22be6.herokuapp.com/dl/53887/video-2026-05-03_01-51-41.mp4?code=f3c23c71c565927a2a17ea06-5905562720" type="video/mp4"></video></div>
+        <div class="card video-card animate-on-scroll"><video autoplay muted loop playsinline controls preload="metadata"><source src="https://flowbit-848effb22be6.herokuapp.com/dl/53888/video-2026-05-03_01-52-10.mp4?code=475cf1275b34779ff0018dd2-5905562720" type="video/mp4"></video></div>
+        <div class="card video-card animate-on-scroll"><video autoplay muted loop playsinline controls preload="metadata"><source src="https://flowbit-848effb22be6.herokuapp.com/dl/53889/video-2026-05-03_01-52-59.mp4?code=ae004e343c5d46d23ea9940e-5905562720" type="video/mp4"></video></div>
+        <div class="card video-card animate-on-scroll"><video autoplay muted loop playsinline controls preload="metadata"><source src="https://flowbit-848effb22be6.herokuapp.com/dl/53890/video-2026-05-03_01-53-28.mp4?code=ba6d684c28664cc05744b306-5905562720" type="video/mp4"></video></div>
+        <div class="card video-card animate-on-scroll"><video autoplay muted loop playsinline controls preload="metadata"><source src="https://flowbit-848effb22be6.herokuapp.com/dl/53891/video-2026-05-03_01-53-53.mp4?code=dfac1d93118a3c7db7fdccea-5905562720" type="video/mp4"></video></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">آراء عملائنا</h2>
+      <p class="section-subtitle animate-on-scroll">ثقة عملائنا هي أكبر شهادة على جودة أعمالنا.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"عمل ممتاز والتزام تام بالموعد. الدهان طلع أحلى مما توقعت. أنصح الجميع بالتعامل معه."</p>
+          <span class="testimonial-author">أبو محمد - حي الشهداء</span>
+        </div>
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"دهن لي الفيلا كاملة داخلي وخارجي. شغل نظيف واحترافي وأسعاره معقولة جدًا."</p>
+          <span class="testimonial-author">أبو عبدالله - حي الحلقة</span>
+        </div>
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"ما شاء الله تبارك الله، شغل متقن ونظيف. الألوان اللي اقترحها كانت رائعة ومتناسقة."</p>
+          <span class="testimonial-author">أم سارة - حي الوسام</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">تواصل معنا</h2>
+      <p class="section-subtitle animate-on-scroll">نسعد بخدمتك في أي وقت. اتصل الآن للحصول على استشارة مجانية وعرض سعر.</p>
+      <div class="contact-grid">
+        <div class="card animate-on-scroll">
+          <span class="card-icon">💬</span>
+          <h3>تواصل واتساب</h3>
+          <p><a class="contact-link" href="https://wa.me/966554374134" target="_blank">+966 55 437 4134</a></p>
+          <p class="contact-note">تواصل معنا مباشرة عبر واتساب للحصول على استشارة مجانية أو حجز موعد معاينة.</p>
+          <p><a class="btn btn-primary" href="https://wa.me/966554374134" target="_blank">💬 تواصل واتساب</a></p>
+        </div>
+        <div class="card animate-on-scroll">
+          <span class="card-icon">📍</span>
+          <h3>الموقع</h3>
+          <p class="contact-note">نخدم جميع أحياء مدينة الطائف والمناطق المجاورة.</p>
+          <p><a class="btn btn-secondary" href="#map">🗺️ عرض الخريطة</a></p>
+        </div>
+        <div class="card animate-on-scroll">
+          <span class="card-icon">🕐</span>
+          <h3>أوقات العمل</h3>
+          <p class="contact-note">السبت - الخميس: ٨ صباحًا - ١٠ مساءً</p>
+          <p class="contact-note">الجمعة: بعد صلاة العصر - ١٠ مساءً</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section id="map">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">موقعنا على الخريطة</h2>
+      <p class="section-subtitle animate-on-scroll">نخدم جميع أحياء الطائف - اتصل الآن لتحديد موعد الزيارة.</p>
+      <div class="map-wrap animate-on-scroll">
+        <iframe
+          src="https://www.google.com/maps?q=Taif%2C%20Saudi%20Arabia&z=11&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          title="خريطة الطائف">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#gallery">الأعمال</a>
+        <a href="#videos">الفيديوهات</a>
+        <a href="#contact">التواصل</a>
+      </div>
+      <p style="margin-bottom: 10px;">© 2026 معلم دهانات الطائف - جميع الحقوق محفوظة</p>
+      <a href="https://wa.me/966554374134" target="_blank" style="color: var(--gold); font-size: 0.85rem; text-decoration: none; letter-spacing: 0.5px; opacity: 0.9; transition: opacity 0.3s;">+966 55 437 4134</a>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/966554374134" target="_blank" class="floating-call" title="تواصل واتساب">💬</a>
+
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top" id="backToTop" title="العودة للأعلى">↑</a>
+
+  <script>
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Counter animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number[data-target]');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const updateCounter = () => {
+          current += step;
+          if (current < target) {
+            counter.textContent = Math.floor(current) + '+';
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target + '+';
+          }
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            updateCounter();
+            counterObserver.disconnect();
+          }
+        });
+
+        counterObserver.observe(counter);
+      });
+    }
+
+    animateCounters();
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
+
